@@ -8,6 +8,7 @@
     - 邮箱注册与验证
       <img width="1920" alt="image" src="https://github.com/user-attachments/assets/fe2cdb7c-7f97-49dd-8c65-6ed7b266354c">
     - JWT token 认证
+      <img width="1920" alt="image" src="https://github.com/user-attachments/assets/c8491af7-0794-4847-a1f8-f012dbe83fc4">
     - 管理员权限控制
 
 - 📱 响应式设计
@@ -17,9 +18,13 @@
 
 - 🎯 导航管理
     - 分组管理
+      <img width="1920" alt="image" src="https://github.com/user-attachments/assets/ab10a804-50c3-46cd-820e-4e509bfdf202">
     - 二级分类
+      <img width="1920" alt="image" src="https://github.com/user-attachments/assets/56a26a07-c1db-4594-9f88-0ac53adca159">
     - 链接排序
+      <img width="1920" alt="image" src="https://github.com/user-attachments/assets/5a6ad313-766f-446b-b334-e60878f7a4da">
     - 灵活的搜索功能
+      <img width="1920" alt="image" src="https://github.com/user-attachments/assets/fe3e8272-115a-4394-9fc5-b42770f8b901">
 
 - 🛠 管理功能
     - 分组 CRUD
