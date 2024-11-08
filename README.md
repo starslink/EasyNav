@@ -6,6 +6,7 @@
 
 - 🔐 用户认证与授权
     - 邮箱注册与验证
+      <img width="1920" alt="image" src="https://github.com/user-attachments/assets/fe2cdb7c-7f97-49dd-8c65-6ed7b266354c">
     - JWT token 认证
     - 管理员权限控制
 
