@@ -1,0 +1,21 @@
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: nav-portal-route
+#  namespace: nav
+#spec:
+#  entryPoints:
+#    - web
+#  routes:
+#    - kind: Rule
+#      match: Host(`nav.company.com`) && PathPrefix(`/api/`) # 替换为实际的域名信息
+#      middlewares:
+#        - name: strip-prefix
+#      services:
+#        - name: nav-portal-backend
+#          port: 3000
+#    - kind: Rule
+#      match: Host(`nav.company.com`) # 替换为实际的域名信息
+#      services:
+#        - name: nav-portal-frontend
+#          port: 80

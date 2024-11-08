@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: nav
+  name: nav-portal-backend
+  labels:
+    app: nav-portal-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nav-portal-backend
+  template:
+    metadata:
+      namespace: nav
+      labels:
+        app: nav-portal-backend
+    spec:
+      containers:
+        - name: nav-portal-backend
+          image: nav-portal-backend:latest
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: backend-config
+            - secretRef:
+                name: backend-secrets
+          resources:
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: nav-portal-data
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: nav
+  name: backend-config
+data:
+  PORT: "3000"
+  FRONTEND_URL: "http://nav-portal-frontend"
+  SMTP_HOST: "smtp.gmail.com"
+  SMTP_PORT: "587"
+  SMTP_SECURE: "false"
+  SMTP_FROM: "Company Portal <noreply@company.com>"
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  namespace: nav
+  name: backend-secrets
+type: Opaque
+data:
+  JWT_SECRET: dGhpcyBpcyBuYXY=  # base64 encoded "this is nav"
+  SMTP_USER: eW91ci1lbWFpbEBnbWFpbC5jb20=  # base64 encoded "your-email@gmail.com"
+  SMTP_PASS: eW91ci1hcHAtc3BlY2lmaWMtcGFzc3dvcmQ=
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: nav
+  name: nav-portal-backend
+spec:
+  selector:
+    app: nav-portal-backend
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: nav
+  name: nav-portal-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
