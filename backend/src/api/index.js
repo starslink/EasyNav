@@ -3,10 +3,10 @@ import cors from 'cors';
 import {fileURLToPath} from 'url';
 import {dirname, join} from 'path';
 import dotenv from 'dotenv';
-import {authRouter} from './routes/auth.js';
-import {groupsRouter} from './routes/groups.js';
-import {linksRouter} from './routes/links.js';
-import {initializeDatabase} from './db/init.js';
+import {authRouter} from '../routes/auth.js';
+import {groupsRouter} from '../routes/groups.js';
+import {linksRouter} from '../routes/links.js';
+import {initializeDatabase} from '../db/init.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -42,4 +42,4 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-module.exports = app;
+// module.exports = app;
