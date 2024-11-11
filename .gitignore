@@ -94,3 +94,4 @@ web-build/
 # Temporary files
 *.tmp
 *.temp
+.vercel
