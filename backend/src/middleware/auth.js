@@ -1,6 +1,9 @@
 import jwt from 'jsonwebtoken';
 import {dbAdapter} from '../db/adapter.js';
 
+
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+
 export const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
@@ -9,7 +12,7 @@ export const authenticateToken = (req, res, next) => {
     return res.status(401).json({ error: '未授权访问' });
   }
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+  jwt.verify(token, JWT_SECRET, (err, user) => {
     if (err) {
       // If token is expired, return a specific message
       if (err.name === 'TokenExpiredError') {

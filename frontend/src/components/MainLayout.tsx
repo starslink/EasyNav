@@ -76,11 +76,6 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ auth, setAuth, addNotifi
     navigate('/admin');
   };
 
-  const handleGroupSelect = (groupId: string, subgroupId?: string) => {
-    setSelectedGroup(groupId);
-    setSelectedSubgroup(subgroupId || '');
-  };
-
   if (isLoading) {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
