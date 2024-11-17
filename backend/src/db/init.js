@@ -342,73 +342,8 @@ async function initializeSqlite(db) {
         );
     }
 
-    // Insert additional groups
-    const additionalGroups = [
-        { id: 'hr', name: '人力资源', icon: 'HiOutlineUserGroup', sort_order: 5 },
-        { id: 'finance', name: '财务', icon: 'HiOutlineCash', sort_order: 8 },
-        { id: 'marketing', name: '市场', icon: 'HiOutlineChartBar', sort_order: 9 }
-    ];
-
-    for (const group of additionalGroups) {
-        await db.run(
-            'INSERT OR IGNORE INTO groups (id, name, icon, sort_order) VALUES (?, ?, ?, ?)',
-            [group.id, group.name, group.icon, group.sort_order]
-        );
-    }
-
     // Insert default links
     for (const link of DEFAULT_DATA.links) {
-        await db.run(
-            'INSERT OR IGNORE INTO links (id, title, subtitle, url, icon, group_id) VALUES (?, ?, ?, ?, ?, ?)',
-            [link.id, link.title, link.subtitle, link.url, link.icon, link.group_id]
-        );
-    }
-
-    // Insert additional links
-    const additionalLinks = [
-        {
-            id: 'hr-system',
-            title: 'HR系统',
-            subtitle: '人力资源管理系统',
-            url: 'https://hr.company.com',
-            icon: 'HiOutlineUserGroup',
-            group_id: 'hr'
-        },
-        {
-            id: 'finance-system',
-            title: '财务系统',
-            subtitle: '财务管理平台',
-            url: 'https://finance.company.com',
-            icon: 'HiOutlineCash',
-            group_id: 'finance'
-        },
-        {
-            id: 'marketing-tools',
-            title: '营销工具',
-            subtitle: '市场推广工具',
-            url: 'https://marketing.company.com',
-            icon: 'HiOutlineChartBar',
-            group_id: 'marketing'
-        },
-        {
-            id: 'confluence',
-            title: 'Confluence',
-            subtitle: '知识管理平台',
-            url: 'https://confluence.company.com',
-            icon: 'HiOutlineBookOpen',
-            group_id: 'dev'
-        },
-        {
-            id: 'jira',
-            title: 'Jira',
-            subtitle: '项目管理工具',
-            url: 'https://jira.company.com',
-            icon: 'HiOutlineBriefcase',
-            group_id: 'dev'
-        }
-    ];
-
-    for (const link of additionalLinks) {
         await db.run(
             'INSERT OR IGNORE INTO links (id, title, subtitle, url, icon, group_id) VALUES (?, ?, ?, ?, ?, ?)',
             [link.id, link.title, link.subtitle, link.url, link.icon, link.group_id]
@@ -430,7 +365,6 @@ async function initializeSqlite(db) {
         );
     }
 }
-
 
 async function initializeMysql(db) {
     await db.query(MYSQL_SCHEMA);
