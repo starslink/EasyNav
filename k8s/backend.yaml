@@ -75,7 +75,7 @@ metadata:
   name: backend-secrets
 type: Opaque
 data:
-  JWT_SECRET: dGhpcyBpcyBuYXY=  # base64 encoded "this is nav"
+  JWT_SECRET: eW91ci1zZWNyZXQta2V5  # base64 encoded "your-secret-key"
   SMTP_USER: eW91ci1lbWFpbEBnbWFpbC5jb20=  # base64 encoded "your-email@gmail.com"
   SMTP_PASS: eW91ci1hcHAtc3BlY2lmaWMtcGFzc3dvcmQ=
 ---
