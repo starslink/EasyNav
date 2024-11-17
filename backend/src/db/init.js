@@ -155,12 +155,11 @@ const DEFAULT_DATA = {
         is_active: true
     },
     groups: [
-        {id: 'dev', name: '研发导航', icon: 'HiOutlineCode', sort_order: 1},
-        {id: 'client', name: '客户导航', icon: 'HiOutlineUsers', sort_order: 2},
-        {id: 'standard', name: '标版客户', icon: 'HiOutlineTemplate', sort_order: 3},
-        {id: 'prod', name: '正式环境', icon: 'HiOutlineGlobe', sort_order: 4},
-        {id: 'independent', name: '独立版本客户', icon: 'HiOutlineCube', sort_order: 6},
-        {id: 'test', name: '客户测试环境', icon: 'HiOutlineBeaker', sort_order: 7}
+        { id: 'dev', name: '研发导航', icon: 'HiOutlineCode', sort_order: 1 },
+        { id: 'client', name: '客户导航', icon: 'HiOutlineUsers', sort_order: 2 },
+        { id: 'standard', name: '标版客户', icon: 'HiOutlineTemplate', sort_order: 3 },
+        { id: 'prod', name: '正式环境', icon: 'HiOutlineGlobe', sort_order: 4 },
+        { id: 'independent', name: '独立版本客户', icon: 'HiOutlineCube', sort_order: 5 }
     ],
     links: [
         {
@@ -180,60 +179,148 @@ const DEFAULT_DATA = {
             group_id: 'dev'
         },
         {
-            id: 'ceshi1',
-            title: 'ceshi1',
-            subtitle: 'ceshi1',
-            url: 'https://jenkins.company.com',
-            icon: 'HiOutlineServer',
+            id: 'confluence',
+            title: 'Confluence',
+            subtitle: '知识管理平台',
+            url: 'https://confluence.company.com',
+            icon: 'HiOutlineBookOpen',
             group_id: 'dev'
         },
         {
-            id: 'ceshi2',
-            title: 'ceshi2',
-            subtitle: 'ceshi2',
-            url: 'https://jenkins.company.com',
-            icon: 'HiOutlineServer',
+            id: 'jira',
+            title: 'Jira',
+            subtitle: '项目管理工具',
+            url: 'https://jira.company.com',
+            icon: 'HiOutlineBriefcase',
             group_id: 'dev'
         },
         {
-            id: 'ceshi3',
-            title: 'ceshi3',
-            subtitle: 'ceshi3',
-            url: 'https://jenkins.company.com',
-            icon: 'HiOutlineServer',
-            group_id: 'dev'
+            id: 'client1',
+            title: '客户1',
+            subtitle: '客户1的详细信息',
+            url: 'https://client1.company.com',
+            icon: 'HiOutlineUsers',
+            group_id: 'client'
         },
         {
-            id: 'ceshi4',
-            title: 'ceshi4',
-            subtitle: 'ceshi4',
-            url: 'https://jenkins.company.com',
-            icon: 'HiOutlineServer',
-            group_id: 'dev'
+            id: 'client2',
+            title: '客户2',
+            subtitle: '客户2的详细信息',
+            url: 'https://client2.company.com',
+            icon: 'HiOutlineUsers',
+            group_id: 'client'
         },
         {
-            id: 'ceshi5',
-            title: 'ceshi5',
-            subtitle: 'ceshi5',
-            url: 'https://jenkins.company.com',
-            icon: 'HiOutlineServer',
-            group_id: 'dev'
+            id: 'client3',
+            title: '客户3',
+            subtitle: '客户3的详细信息',
+            url: 'https://client3.company.com',
+            icon: 'HiOutlineUsers',
+            group_id: 'client'
         },
         {
-            id: 'ceshi6',
-            title: 'ceshi6',
-            subtitle: 'ceshi6',
-            url: 'https://jenkins.company.com',
-            icon: 'HiOutlineServer',
-            group_id: 'dev'
+            id: 'client4',
+            title: '客户4',
+            subtitle: '客户4的详细信息',
+            url: 'https://client4.company.com',
+            icon: 'HiOutlineUsers',
+            group_id: 'client'
         },
         {
-            id: 'ceshi7',
-            title: 'ceshi7',
-            subtitle: 'ceshi7',
-            url: 'https://jenkins.company.com',
-            icon: 'HiOutlineServer',
-            group_id: 'dev'
+            id: 'standard1',
+            title: '标准客户1',
+            subtitle: '标准客户1的详细信息',
+            url: 'https://standard1.company.com',
+            icon: 'HiOutlineTemplate',
+            group_id: 'standard'
+        },
+        {
+            id: 'standard2',
+            title: '标准客户2',
+            subtitle: '标准客户2的详细信息',
+            url: 'https://standard2.company.com',
+            icon: 'HiOutlineTemplate',
+            group_id: 'standard'
+        },
+        {
+            id: 'standard3',
+            title: '标准客户3',
+            subtitle: '标准客户3的详细信息',
+            url: 'https://standard3.company.com',
+            icon: 'HiOutlineTemplate',
+            group_id: 'standard'
+        },
+        {
+            id: 'standard4',
+            title: '标准客户4',
+            subtitle: '标准客户4的详细信息',
+            url: 'https://standard4.company.com',
+            icon: 'HiOutlineTemplate',
+            group_id: 'standard'
+        },
+        {
+            id: 'prod1',
+            title: '生产环境1',
+            subtitle: '生产环境1的详细信息',
+            url: 'https://prod1.company.com',
+            icon: 'HiOutlineGlobe',
+            group_id: 'prod'
+        },
+        {
+            id: 'prod2',
+            title: '生产环境2',
+            subtitle: '生产环境2的详细信息',
+            url: 'https://prod2.company.com',
+            icon: 'HiOutlineGlobe',
+            group_id: 'prod'
+        },
+        {
+            id: 'prod3',
+            title: '生产环境3',
+            subtitle: '生产环境3的详细信息',
+            url: 'https://prod3.company.com',
+            icon: 'HiOutlineGlobe',
+            group_id: 'prod'
+        },
+        {
+            id: 'prod4',
+            title: '生产环境4',
+            subtitle: '生产环境4的详细信息',
+            url: 'https://prod4.company.com',
+            icon: 'HiOutlineGlobe',
+            group_id: 'prod'
+        },
+        {
+            id: 'independent1',
+            title: '独立版本客户1',
+            subtitle: '独立版本客户1的详细信息',
+            url: 'https://independent1.company.com',
+            icon: 'HiOutlineCube',
+            group_id: 'independent'
+        },
+        {
+            id: 'independent2',
+            title: '独立版本客户2',
+            subtitle: '独立版本客户2的详细信息',
+            url: 'https://independent2.company.com',
+            icon: 'HiOutlineCube',
+            group_id: 'independent'
+        },
+        {
+            id: 'independent3',
+            title: '独立版本客户3',
+            subtitle: '独立版本客户3的详细信息',
+            url: 'https://independent3.company.com',
+            icon: 'HiOutlineCube',
+            group_id: 'independent'
+        },
+        {
+            id: 'independent4',
+            title: '独立版本客户4',
+            subtitle: '独立版本客户4的详细信息',
+            url: 'https://independent4.company.com',
+            icon: 'HiOutlineCube',
+            group_id: 'independent'
         }
     ]
 };
