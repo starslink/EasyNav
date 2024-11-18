@@ -32,12 +32,17 @@ export const MainLayout: React.FC<MainLayoutProps> = ({auth, setAuth, addNotific
     useEffect(() => {
         const handleScroll = throttle(() => {
             const scrollTop = window.scrollY;
-            setIsExpanded(scrollTop > 50);
+            // Set isExpanded based on scroll position
+            if (scrollTop > 50 && !isExpanded) {
+                setIsExpanded(true);
+            } else if (scrollTop <= 50 && isExpanded) {
+                setIsExpanded(false);
+            }
         }, 100);
 
         window.addEventListener('scroll', handleScroll, {passive: true});
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isExpanded]); // Add isExpanded to dependency array
 
     const loadData = async () => {
         setIsLoading(true);
