@@ -15,7 +15,7 @@ interface MainLayoutProps {
   addNotification: (type: NotificationMessage['type'], message: string) => void;
 }
 
-export default function Component({ auth, setAuth, addNotification }: MainLayoutProps) {
+export const MainLayout: React.FC<MainLayoutProps> = ({auth, setAuth, addNotification}) => {
   const navigate = useNavigate();
   const [selectedGroup, setSelectedGroup] = useState<string>('');
   const [selectedSubgroup, setSelectedSubgroup] = useState<string>('');
