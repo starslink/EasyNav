@@ -1,4 +1,4 @@
-FROM m.daocloud.io/docker.io/library/node:18-alpine as builder
+FROM crpi-azx8qz94819u1c2x.cn-guangzhou.personal.cr.aliyuncs.com/kevin_namespace/node:18-alpine as builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN npm ci --registry=https://registry.npmmirror.com
 COPY . .
 RUN npm run build
 
-FROM m.daocloud.io/docker.io/library/nginx:alpine
+FROM crpi-azx8qz94819u1c2x.cn-guangzhou.personal.cr.aliyuncs.com/kevin_namespace/nginx:alpine
 
 COPY --from=builder /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
