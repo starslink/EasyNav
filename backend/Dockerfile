@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM crpi-azx8qz94819u1c2x.cn-guangzhou.personal.cr.aliyuncs.com/kevin_namespace/node:18-alpine
 
 WORKDIR /app
 
