@@ -2,7 +2,6 @@
 
 一个现代化的企业内部导航门户系统，用于集中管理和展示公司各类系统和资源的链接。
 
-- 临时域名：https://eyaxltzszbal.sealosgzg.site/
 - demo地址：https://www.easynav.icu
 - 用户名：admin 密码：admin123
 ## 功能特点
